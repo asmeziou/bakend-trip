@@ -19,6 +19,9 @@ const sentFrom = new Sender(
 app.get("/", (req, res) => {
   res.status(200).json("Server is up !");
 });
+app.get("/form", (req, res) => {
+  res.send("Route form OK");
+});
 
 app.post("/form", async (req, res) => {
   try {
