@@ -29,7 +29,7 @@ app.post("/form", async (req, res) => {
     console.log(req.body);
 
     // On destructure req.body
-    const { firstname, lastname, email, message } = req.body;
+    const { firstname, lastname, email, subject, message } = req.body;
 
     //   On crée un tableau contenant les informations reçues du(des) client(s) :
     const recipients = [new Recipient(email, `${firstname} ${lastname}`)];
@@ -38,7 +38,7 @@ app.post("/form", async (req, res) => {
       .setFrom(sentFrom)
       .setTo(recipients)
       .setReplyTo(sentFrom)
-      .setSubject("This is a Subject")
+      .setSubject(subject)
       .setHtml("<strong>" + message + "</strong>")
       .setText(message);
 
